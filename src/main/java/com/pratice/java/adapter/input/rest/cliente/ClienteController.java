@@ -9,10 +9,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+import static com.pratice.java.domain.common.ConstanteCommon.CRIADO_COM_SUCESSO;
+import static com.pratice.java.domain.common.ConstanteCommon.EXCLUIDO_COM_SUCESSO;
 
 @RestController
 @RequestMapping(value = "/v1/cliente")
@@ -29,7 +31,7 @@ public class ClienteController implements ClienteSwagger{
         try {
             var clienteModel = clienteMapper.clienteRequestToModel(request);
             clienteUseCase.executar(clienteModel);
-            return ResponseEntity.status(HttpStatus.CREATED).body(new ClienteResponse("Cliente criado com sucesso"));
+            return ResponseEntity.status(HttpStatus.CREATED).body(new ClienteResponse(CRIADO_COM_SUCESSO));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -40,6 +42,23 @@ public class ClienteController implements ClienteSwagger{
     public ResponseEntity<ClienteEntityWrapper> buscarCliente(Long idCliente) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(clienteUseCase.executar(idCliente));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    @GetMapping
+    public ResponseEntity<List<ClienteEntityWrapper>> buscarTodosClientes() {
+        return ResponseEntity.status(HttpStatus.OK).body(clienteUseCase.executar());
+    }
+
+    @Override
+    @DeleteMapping
+    public ResponseEntity<ClienteResponse> excluirCliente(Long idCliente) {
+        try {
+            clienteUseCase.exclusao(idCliente);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ClienteResponse(EXCLUIDO_COM_SUCESSO));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

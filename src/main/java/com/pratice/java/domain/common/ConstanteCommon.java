@@ -12,4 +12,6 @@ public interface ConstanteCommon {
      * @apiNote CONSTANT
      */
     String MSG_NOT_FOUND = "Não foi possível encontrar esse cliente";
+    String CRIADO_COM_SUCESSO = "Cliente criado com sucesso";
+    String EXCLUIDO_COM_SUCESSO = "Cliente excluido com sucesso";
 }

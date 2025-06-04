@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+
 @Tag(name = "Clientes", description = "Operações referente a clientes")
 public interface ClienteSwagger {
 
@@ -32,4 +34,22 @@ public interface ClienteSwagger {
     @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Ok"),
                             @ApiResponse(responseCode = "404", description = "Not Found")})
     ResponseEntity<ClienteEntityWrapper> buscarCliente(Long idCliente);
+
+    @Operation(
+            operationId = "buscarTodosClientes",
+            summary = "Endpoint responsável por buscar todos os cliente no banco de dados",
+            description = "Busca todos os clientes"
+    )
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Ok"),
+                            @ApiResponse(responseCode = "404", description = "Not Found")})
+    ResponseEntity<List<ClienteEntityWrapper>> buscarTodosClientes();
+
+    @Operation(
+            operationId = "excluirCliente",
+            summary = "Endpoint responsável por buscar um cliente no banco de dados e exclui-lo",
+            description = "Exclui cliente"
+    )
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Ok"),
+            @ApiResponse(responseCode = "404", description = "Not Found")})
+    public ResponseEntity<ClienteResponse> excluirCliente(Long idCliente);
 }

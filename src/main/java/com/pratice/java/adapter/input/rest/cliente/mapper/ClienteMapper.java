@@ -8,6 +8,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ClienteMapper {
@@ -18,6 +19,7 @@ public interface ClienteMapper {
     @Mapping(target = "rendaMensal", source = "request.rendaMensal")
     ClienteModel clienteRequestToModel(ClienteRequest request);
 
+    @Mapping(target = "cdControleCpfCnpjFormatado", ignore = true)
     @Mapping(target = "cdIdentificadorCliente", ignore = true)
     @Mapping(target = "nomeCliente", source = "model.nome")
     @Mapping(target = "cdCpfCnpj", source = "cpf")
@@ -32,4 +34,5 @@ public interface ClienteMapper {
     @Mapping(target = "rendaMensal", source = "entity.rendaMensal")
     ClienteEntityWrapper clienteEntityToEntityWrapper(ClienteEntity entity);
 
+    List<ClienteEntityWrapper> ListEntitiesToListEntityWrapper(List<ClienteEntity> entities);
 }
