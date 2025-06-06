@@ -2,9 +2,11 @@ package com.pratice.java.adapter.input.rest.cliente;
 
 import com.pratice.java.adapter.input.rest.cliente.dto.ClienteEntityWrapper;
 import com.pratice.java.adapter.input.rest.cliente.mapper.ClienteMapper;
+import com.pratice.java.adapter.input.rest.cliente.request.AtualizarDadosRequest;
 import com.pratice.java.adapter.input.rest.cliente.request.ClienteRequest;
 import com.pratice.java.adapter.input.rest.cliente.response.ClienteResponse;
 import com.pratice.java.port.input.ClienteUseCase;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.pratice.java.domain.common.ConstanteCommon.CRIADO_COM_SUCESSO;
-import static com.pratice.java.domain.common.ConstanteCommon.EXCLUIDO_COM_SUCESSO;
+import static com.pratice.java.domain.common.ConstanteCommon.*;
 
 @RestController
 @RequestMapping(value = "/v1/cliente")
@@ -27,7 +28,7 @@ public class ClienteController implements ClienteSwagger{
 
     @Override
     @PostMapping
-    public ResponseEntity<ClienteResponse> criarCliente(ClienteRequest request) {
+    public ResponseEntity<ClienteResponse> criarCliente(@RequestBody @Valid ClienteRequest request) {
         try {
             var clienteModel = clienteMapper.clienteRequestToModel(request);
             clienteUseCase.executar(clienteModel);
@@ -38,8 +39,8 @@ public class ClienteController implements ClienteSwagger{
     }
 
     @Override
-    @GetMapping
-    public ResponseEntity<ClienteEntityWrapper> buscarCliente(Long idCliente) {
+    @GetMapping("/{idCliente}")
+    public ResponseEntity<ClienteEntityWrapper> buscarCliente(@PathVariable Long idCliente) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(clienteUseCase.executar(idCliente));
         } catch (Exception e) {
@@ -53,9 +54,19 @@ public class ClienteController implements ClienteSwagger{
         return ResponseEntity.status(HttpStatus.OK).body(clienteUseCase.executar());
     }
 
+    @PatchMapping("/{idCliente}")
+    public ResponseEntity<ClienteResponse> atualizarDados(@PathVariable Long idCliente, @RequestBody AtualizarDadosRequest request) {
+        try {
+            clienteUseCase.executar(idCliente, request);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ClienteResponse(ATUALIZADO_COM_SUCESSO));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
-    @DeleteMapping
-    public ResponseEntity<ClienteResponse> excluirCliente(Long idCliente) {
+    @DeleteMapping("/{idCliente}")
+    public ResponseEntity<ClienteResponse> excluirCliente(@PathVariable Long idCliente) {
         try {
             clienteUseCase.exclusao(idCliente);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ClienteResponse(EXCLUIDO_COM_SUCESSO));

@@ -10,6 +10,6 @@ public interface ClientePort {
     void salvarCliente(ClienteEntity clienteEntity);
     ClienteEntity buscarCliente(Long idCliente);
     List<ClienteEntity> buscarTodosClientes();
-
     void excluirCliente(Long idCliente);
+
 }
