@@ -28,6 +28,7 @@ public interface ClienteMapper {
     @Mapping(target = "rendaMensal", source = "model.rendaMensal")
     ClienteEntity clienteModelToEntity(ClienteModel model, String cpf, BigDecimal cpfDigito);
 
+    @Mapping(target = "id", source = "entity.cdIdentificadorCliente")
     @Mapping(target = "nomeCliente", source = "entity.nomeCliente")
     @Mapping(target = "cdControleCpfCnpjFormatado", source = "entity.cdControleCpfCnpjFormatado")
     @Mapping(target = "dataNascimento", source = "entity.dataNascimento")

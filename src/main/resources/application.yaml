@@ -1,4 +1,7 @@
 spring:
   application:
     name: pratice-java
+server:
+  servlet:
+    context-path: /pratice-java
 

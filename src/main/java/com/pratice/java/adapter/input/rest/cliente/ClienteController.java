@@ -21,7 +21,7 @@ import static com.pratice.java.domain.common.ConstanteCommon.*;
 @RequestMapping(value = "/v1/cliente")
 @RequiredArgsConstructor
 @Validated
-public class ClienteController implements ClienteSwagger{
+public class ClienteController implements ClienteSwagger {
 
     private final ClienteMapper clienteMapper;
     private final ClienteUseCase clienteUseCase;
@@ -29,23 +29,15 @@ public class ClienteController implements ClienteSwagger{
     @Override
     @PostMapping
     public ResponseEntity<ClienteResponse> criarCliente(@RequestBody @Valid ClienteRequest request) {
-        try {
-            var clienteModel = clienteMapper.clienteRequestToModel(request);
-            clienteUseCase.executar(clienteModel);
-            return ResponseEntity.status(HttpStatus.CREATED).body(new ClienteResponse(CRIADO_COM_SUCESSO));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        var clienteModel = clienteMapper.clienteRequestToModel(request);
+        clienteUseCase.executar(clienteModel);
+        return ResponseEntity.status(HttpStatus.CREATED).body(new ClienteResponse(CRIADO_COM_SUCESSO));
     }
 
     @Override
     @GetMapping("/{idCliente}")
     public ResponseEntity<ClienteEntityWrapper> buscarCliente(@PathVariable Long idCliente) {
-        try {
-            return ResponseEntity.status(HttpStatus.OK).body(clienteUseCase.executar(idCliente));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        return ResponseEntity.status(HttpStatus.OK).body(clienteUseCase.executar(idCliente));
     }
 
     @Override
@@ -56,22 +48,14 @@ public class ClienteController implements ClienteSwagger{
 
     @PatchMapping("/{idCliente}")
     public ResponseEntity<ClienteResponse> atualizarDados(@PathVariable Long idCliente, @RequestBody AtualizarDadosRequest request) {
-        try {
-            clienteUseCase.executar(idCliente, request);
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ClienteResponse(ATUALIZADO_COM_SUCESSO));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        clienteUseCase.executar(idCliente, request);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ClienteResponse(ATUALIZADO_COM_SUCESSO));
     }
 
     @Override
     @DeleteMapping("/{idCliente}")
     public ResponseEntity<ClienteResponse> excluirCliente(@PathVariable Long idCliente) {
-        try {
-            clienteUseCase.exclusao(idCliente);
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ClienteResponse(EXCLUIDO_COM_SUCESSO));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        clienteUseCase.exclusao(idCliente);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ClienteResponse(EXCLUIDO_COM_SUCESSO));
     }
 }

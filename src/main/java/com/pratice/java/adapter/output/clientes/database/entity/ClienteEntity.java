@@ -1,5 +1,6 @@
 package com.pratice.java.adapter.output.clientes.database.entity;
 
+import com.pratice.java.domain.utils.Formatter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,9 +42,10 @@ public class ClienteEntity {
     private BigDecimal rendaMensal;
 
     @PostLoad
-    private void cpfFormatado(String cdCpfCnpj, BigDecimal cdControleCpfCnpj) {
+    private void formatarControleCpfCnpj() {
         if (cdCpfCnpj != null && cdControleCpfCnpj != null) {
-            this.cdControleCpfCnpjFormatado = cdCpfCnpj.concat(cdControleCpfCnpj.toPlainString());
+            String cpfCnpj = cdCpfCnpj + cdControleCpfCnpj.toBigInteger().toString();
+            this.cdControleCpfCnpjFormatado = Formatter.formatarCpfCnpj(cpfCnpj);
         }
     }
 }

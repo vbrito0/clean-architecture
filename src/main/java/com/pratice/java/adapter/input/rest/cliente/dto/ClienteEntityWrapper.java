@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public record ClienteEntityWrapper(
+        Long id,
         String nomeCliente,
         String cdControleCpfCnpjFormatado,
         LocalDate dataNascimento,

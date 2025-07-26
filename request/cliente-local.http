@@ -1,0 +1,27 @@
+### Requisição GET [Retornando todos clientes]
+GET http://localhost:8080/pratice-java/v1/cliente
+
+### Requisição POST com corpo JSON [Criando cliente]
+POST http://localhost:8080/pratice-java/v1/cliente
+Content-Type: application/json
+
+{
+  "nome": "Victor",
+  "cpf": "55557221840",
+  "dataNascimento": "2002-09-27",
+  "rendaMensal": 150000.00
+}
+
+### Requisição GET [Retornando 1 cliente]
+GET http://localhost:8080/pratice-java/v1/cliente/1
+
+### Requisição PATCH [Alterando dados parcialmente do cliente]
+PATCH http://localhost:8080/pratice-java/v1/cliente/1
+Content-Type: application/json
+
+{
+  "rendaMensal": 200000.00
+}
+
+### Requisição DELETE [Deletar cliente]
+DELETE http://localhost:8080/pratice-java/v1/cliente/1
