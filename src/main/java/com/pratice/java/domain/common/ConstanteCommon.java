@@ -15,4 +15,6 @@ public interface ConstanteCommon {
     String CRIADO_COM_SUCESSO = "Cliente criado com sucesso";
     String EXCLUIDO_COM_SUCESSO = "Cliente excluido com sucesso";
     String ATUALIZADO_COM_SUCESSO = "Cliente atualizado com sucesso";
+    String ENDERECO_ADD_SUCESSO = "O endereço foi adicionado ao cadastro do cliente com sucesso";
+    String ENDERECO_EXCLUIDO_SUCESSO = "O endereço foi excluido ao cadastro do cliente com sucesso";
 }

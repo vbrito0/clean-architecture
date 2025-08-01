@@ -2,7 +2,8 @@ package com.pratice.java.adapter.input.rest.cliente.mapper;
 
 import com.pratice.java.adapter.input.rest.cliente.dto.ClienteEntityWrapper;
 import com.pratice.java.adapter.input.rest.cliente.request.ClienteRequest;
-import com.pratice.java.adapter.output.clientes.database.entity.ClienteEntity;
+import com.pratice.java.adapter.input.rest.endereco.mapper.EnderecoMapper;
+import com.pratice.java.adapter.output.database.clientes.entity.ClienteEntity;
 import com.pratice.java.domain.model.ClienteModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -10,7 +11,7 @@ import org.mapstruct.Mapping;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = EnderecoMapper.class)
 public interface ClienteMapper {
 
     @Mapping(target = "nome", source = "request.nome")
@@ -33,6 +34,7 @@ public interface ClienteMapper {
     @Mapping(target = "cdControleCpfCnpjFormatado", source = "entity.cdControleCpfCnpjFormatado")
     @Mapping(target = "dataNascimento", source = "entity.dataNascimento")
     @Mapping(target = "rendaMensal", source = "entity.rendaMensal")
+    @Mapping(target = "enderecoList", source = "entity.enderecos")
     ClienteEntityWrapper clienteEntityToEntityWrapper(ClienteEntity entity);
 
     List<ClienteEntityWrapper> ListEntitiesToListEntityWrapper(List<ClienteEntity> entities);

@@ -23,4 +23,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleGenericException(Exception ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro intteerno: " + ex.getMessage());
     }
+
+    @ExceptionHandler(CepInvalidoException.class)
+    public ResponseEntity<String> handleCepInvalidoException(CepInvalidoException ex) {
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(ex.getMessage());
+    }
 }
