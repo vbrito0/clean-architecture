@@ -1,0 +1,28 @@
+### Requisição POST com corpo JSON [Criando endereco para o cliente]
+POST http://localhost:8080/pratice-java/v1/endereco/cliente/55557221840
+Content-Type: application/json
+
+{
+  "cep": "13573348",
+  "logradouro": "",
+  "numero": 200,
+  "bairro": "",
+  "cidade": "",
+  "estado": ""
+}
+
+//{
+//  "cep": "08257100",
+//  "logradouro": "",
+//  "numero": 115,
+//  "bairro": "",
+//  "cidade": "",
+//  "estado": ""
+//}
+
+
+### Requisição GET [Retornando todos os endereços do cliente]
+GET http://localhost:8080/pratice-java/v1/endereco/cliente/55557221840
+
+### Requisição DELETE [Deletar endereço do cliente pelo cep e cpf]
+DELETE http://localhost:8080/pratice-java/v1/endereco/08257100/cliente/55557221840

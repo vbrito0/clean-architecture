@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 
@@ -13,8 +15,10 @@ import java.util.Arrays;
 
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 
+@EnableFeignClients
 @SpringBootApplication
 @ComponentScan(basePackages = "com.pratice.java")
+@ConfigurationProperties
 public class Application implements CommandLineRunner {
 
 	private static final Logger LOGGER_TECNICO = LoggerFactory.getLogger(Application.class);

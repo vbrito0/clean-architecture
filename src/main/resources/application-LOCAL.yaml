@@ -8,7 +8,23 @@ spring:
     driverClassName: org.h2.Driver
     jpa:
       database-platform: org.hibernate.dialect.H2Dialect
-  context:
-    path: /pratice-java
+  data:
+    rest:
+      enabled: false
+
 server:
   port: ${port:8080}
+  servlet:
+    context-path: /pratice-java
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      viaCep:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 3
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 2
+

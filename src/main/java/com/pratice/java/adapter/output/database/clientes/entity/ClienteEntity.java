@@ -1,5 +1,7 @@
-package com.pratice.java.adapter.output.clientes.database.entity;
+package com.pratice.java.adapter.output.database.clientes.entity;
 
+import com.pratice.java.adapter.output.database.endereco.entity.EnderecoEntity;
+import com.pratice.java.domain.utils.Formatter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "TCLIENTE")
@@ -40,10 +43,14 @@ public class ClienteEntity {
     @Column(name = "REMEN")
     private BigDecimal rendaMensal;
 
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EnderecoEntity> enderecos;
+
     @PostLoad
-    private void cpfFormatado(String cdCpfCnpj, BigDecimal cdControleCpfCnpj) {
+    private void formatarControleCpfCnpj() {
         if (cdCpfCnpj != null && cdControleCpfCnpj != null) {
-            this.cdControleCpfCnpjFormatado = cdCpfCnpj.concat(cdControleCpfCnpj.toPlainString());
+            String cpfCnpj = cdCpfCnpj + cdControleCpfCnpj.toBigInteger().toString();
+            this.cdControleCpfCnpjFormatado = Formatter.formatarCpfCnpj(cpfCnpj);
         }
     }
 }

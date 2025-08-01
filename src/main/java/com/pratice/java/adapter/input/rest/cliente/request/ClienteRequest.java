@@ -1,6 +1,7 @@
 package com.pratice.java.adapter.input.rest.cliente.request;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -13,8 +14,8 @@ public record ClienteRequest(
         String nome,
         @CPF(message = "CPF INVÁLIDO")
         String cpf,
-        @NotBlank(message = "O campo dataNascimento é obrigatório")
+        @NotNull(message = "O campo dataNascimento é obrigatório")
         LocalDate dataNascimento,
-        @NotBlank(message = "O campo rendaMensal é obrigatório")
+        @NotNull(message = "O campo rendaMensal é obrigatório")
         BigDecimal rendaMensal) {
 }
