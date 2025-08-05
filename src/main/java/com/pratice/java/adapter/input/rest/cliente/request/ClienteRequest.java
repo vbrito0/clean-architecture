@@ -13,6 +13,7 @@ public record ClienteRequest(
         @NotBlank(message = "O campo nome é obrigatório")
         String nome,
         @CPF(message = "CPF INVÁLIDO")
+        @NotBlank(message = "O campo cpf é obrigatório")
         String cpf,
         @NotNull(message = "O campo dataNascimento é obrigatório")
         LocalDate dataNascimento,
