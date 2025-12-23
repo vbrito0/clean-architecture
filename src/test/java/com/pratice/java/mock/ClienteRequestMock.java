@@ -1,6 +1,6 @@
 package com.pratice.java.mock;
 
-import com.pratice.java.adapter.input.rest.cliente.request.ClienteRequest;
+import com.pratice.java.adapter.input.rest.cliente.dto.request.ClienteRequest;
 import lombok.AllArgsConstructor;
 
 import java.math.BigDecimal;

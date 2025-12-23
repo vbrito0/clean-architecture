@@ -8,6 +8,8 @@ public class EnderecoEntityWrapperMock {
 
     public static List<EnderecoEntityWrapper> criarListaEndereco() {
         return List.of(new EnderecoEntityWrapper(1L, "08257100", "Rua Luz do Sol",
-                115, "Conjunto Residencial José Bonifácio", "São Paulo", "São Paulo"));
+                115, "Conjunto Residencial José Bonifácio", "São Paulo", "São Paulo"),
+                new EnderecoEntityWrapper(2L, "08473090", "Rua Conjunto Sítio Conceição",
+                        660, "Conjunto Habitacional Sitio Conceiçao", "São Paulo", "São Paulo"));
     }
 }

@@ -1,7 +1,7 @@
 package com.pratice.java.adapter.output.feign;
 
 import com.pratice.java.adapter.exception.CepInvalidoException;
-import com.pratice.java.adapter.input.rest.endereco.response.ViaCepResponse;
+import com.pratice.java.adapter.input.rest.endereco.dto.response.ViaCepResponse;
 import com.pratice.java.adapter.output.feign.client.ViaCepClient;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;

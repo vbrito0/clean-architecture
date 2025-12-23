@@ -1,6 +1,6 @@
 package com.pratice.java.mock;
 
-import com.pratice.java.adapter.input.rest.endereco.request.EnderecoRequest;
+import com.pratice.java.adapter.input.rest.endereco.dto.request.EnderecoRequest;
 
 public class EnderecoRequestMock {
 

@@ -1,7 +1,7 @@
 package com.pratice.java.adapter.output.feign.client;
 
 import com.pratice.java.adapter.exception.CepInvalidoException;
-import com.pratice.java.adapter.input.rest.endereco.response.ViaCepResponse;
+import com.pratice.java.adapter.input.rest.endereco.dto.response.ViaCepResponse;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

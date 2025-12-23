@@ -1,8 +1,8 @@
 package com.pratice.java.adapter.input.rest.endereco.mapper;
 
 import com.pratice.java.adapter.input.rest.endereco.dto.EnderecoEntityWrapper;
-import com.pratice.java.adapter.input.rest.endereco.request.EnderecoRequest;
-import com.pratice.java.adapter.input.rest.endereco.response.ViaCepResponse;
+import com.pratice.java.adapter.input.rest.endereco.dto.request.EnderecoRequest;
+import com.pratice.java.adapter.input.rest.endereco.dto.response.ViaCepResponse;
 import com.pratice.java.adapter.output.database.clientes.entity.ClienteEntity;
 import com.pratice.java.adapter.output.database.endereco.entity.EnderecoEntity;
 import org.mapstruct.Mapper;

@@ -1,4 +1,4 @@
-package com.pratice.java.adapter.input.rest.cliente.request;
+package com.pratice.java.adapter.input.rest.cliente.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

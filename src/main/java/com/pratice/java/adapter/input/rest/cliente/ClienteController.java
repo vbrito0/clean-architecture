@@ -1,10 +1,10 @@
 package com.pratice.java.adapter.input.rest.cliente;
 
 import com.pratice.java.adapter.input.rest.cliente.dto.ClienteEntityWrapper;
+import com.pratice.java.adapter.input.rest.cliente.dto.request.AtualizarDadosRequest;
+import com.pratice.java.adapter.input.rest.cliente.dto.request.ClienteRequest;
+import com.pratice.java.adapter.input.rest.cliente.dto.response.ClienteResponse;
 import com.pratice.java.adapter.input.rest.cliente.mapper.ClienteMapper;
-import com.pratice.java.adapter.input.rest.cliente.request.AtualizarDadosRequest;
-import com.pratice.java.adapter.input.rest.cliente.request.ClienteRequest;
-import com.pratice.java.adapter.input.rest.cliente.response.ClienteResponse;
 import com.pratice.java.port.input.ClienteUseCase;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

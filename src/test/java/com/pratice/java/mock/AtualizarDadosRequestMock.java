@@ -1,6 +1,6 @@
 package com.pratice.java.mock;
 
-import com.pratice.java.adapter.input.rest.cliente.request.AtualizarDadosRequest;
+import com.pratice.java.adapter.input.rest.cliente.dto.request.AtualizarDadosRequest;
 
 import java.math.BigDecimal;
 

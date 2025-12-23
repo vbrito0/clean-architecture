@@ -1,4 +1,4 @@
-package com.pratice.java.adapter.input.rest.endereco.request;
+package com.pratice.java.adapter.input.rest.endereco.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;

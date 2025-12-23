@@ -1,12 +1,12 @@
 package com.pratice.java.domain.service;
 
 import com.pratice.java.adapter.input.rest.cliente.dto.ClienteEntityWrapper;
+import com.pratice.java.adapter.input.rest.cliente.dto.request.AtualizarDadosRequest;
 import com.pratice.java.adapter.input.rest.cliente.mapper.ClienteMapper;
-import com.pratice.java.adapter.input.rest.cliente.request.AtualizarDadosRequest;
 import com.pratice.java.adapter.input.rest.endereco.dto.EnderecoEntityWrapper;
+import com.pratice.java.adapter.input.rest.endereco.dto.request.EnderecoRequest;
+import com.pratice.java.adapter.input.rest.endereco.dto.response.ViaCepResponse;
 import com.pratice.java.adapter.input.rest.endereco.mapper.EnderecoMapper;
-import com.pratice.java.adapter.input.rest.endereco.request.EnderecoRequest;
-import com.pratice.java.adapter.input.rest.endereco.response.ViaCepResponse;
 import com.pratice.java.adapter.output.database.clientes.entity.ClienteEntity;
 import com.pratice.java.adapter.output.database.endereco.entity.EnderecoEntity;
 import com.pratice.java.adapter.output.feign.client.ViaCepClient;
@@ -19,9 +19,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 
 import static com.pratice.java.domain.common.ConstanteCommon.INDEX_NOVE;
 import static com.pratice.java.domain.common.ConstanteCommon.INDEX_ZERO;

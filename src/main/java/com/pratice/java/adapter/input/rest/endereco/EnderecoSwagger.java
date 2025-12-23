@@ -1,8 +1,8 @@
 package com.pratice.java.adapter.input.rest.endereco;
 
 import com.pratice.java.adapter.input.rest.endereco.dto.EnderecoEntityWrapper;
-import com.pratice.java.adapter.input.rest.endereco.request.EnderecoRequest;
-import com.pratice.java.adapter.input.rest.endereco.response.EnderecoResponse;
+import com.pratice.java.adapter.input.rest.endereco.dto.request.EnderecoRequest;
+import com.pratice.java.adapter.input.rest.endereco.dto.response.EnderecoResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
