@@ -5,7 +5,6 @@ import com.pratice.java.adapter.output.database.usuarios.entity.Usuario;
 import com.pratice.java.adapter.output.database.usuarios.repository.UsuarioRepository;
 import com.pratice.java.port.output.UsuarioPort;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import static com.pratice.java.domain.common.ConstanteCommon.MSG_NOT_FOUND_USER;
@@ -23,6 +22,6 @@ public class UsuarioPersistence implements UsuarioPort {
 
     @Override
     public Usuario buscarUsuario(String username) {
-        return repository.findByEmail(username).orElseThrow(() -> new NotFoundException(HttpStatus.NOT_FOUND.value(), MSG_NOT_FOUND_USER));
+        return repository.findByEmail(username).orElseThrow(() -> new NotFoundException(MSG_NOT_FOUND_USER));
     }
 }

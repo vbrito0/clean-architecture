@@ -8,7 +8,6 @@ import com.pratice.java.port.input.UsuarioUseCase;
 import com.pratice.java.port.output.TokenGeneratorPort;
 import com.pratice.java.port.output.UsuarioPort;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +43,7 @@ public class AuthService implements UsuarioUseCase {
         Usuario usuario = usuarioPort.buscarUsuario(username);
 
         if(!passwordEncoder.matches(senha, usuario.getSenha())) {
-            throw new PasswordInvalidException(HttpStatus.UNAUTHORIZED.value(), MSG_PASSWORD_INVALID);
+            throw new PasswordInvalidException(MSG_PASSWORD_INVALID);
         }
 
         return tokenGeneratorPort.gerarToken(usuario);

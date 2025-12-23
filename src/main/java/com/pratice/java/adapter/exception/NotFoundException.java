@@ -1,12 +1,15 @@
 package com.pratice.java.adapter.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import java.io.Serial;
 
-@ResponseStatus(HttpStatus.NOT_FOUND)
+import static org.springframework.http.HttpStatus.NOT_FOUND;
+
 public class NotFoundException extends BusinessException {
 
-    public NotFoundException(Integer errorCode, String errorMsg) {
-        super(errorCode, errorMsg);
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    public NotFoundException(String message) {
+        super(NOT_FOUND, message);
     }
 }

@@ -1,11 +1,9 @@
 package com.pratice.java.adapter.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 
-@ResponseStatus(HttpStatus.UNAUTHORIZED)
 public class PasswordInvalidException extends BusinessException {
-    public PasswordInvalidException(Integer errorCode, String errorMsg) {
-        super(errorCode, errorMsg);
+    public PasswordInvalidException(String message) {
+        super(UNAUTHORIZED, message);
     }
 }

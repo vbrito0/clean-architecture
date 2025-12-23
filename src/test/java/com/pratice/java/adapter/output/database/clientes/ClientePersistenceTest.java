@@ -16,6 +16,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 class ClientePersistenceTest {
 
@@ -59,7 +60,8 @@ class ClientePersistenceTest {
             persistence.buscarCliente(1L);
         });
 
-        assertEquals(String.valueOf(404), ex.getErrCode());
+        assertEquals(NOT_FOUND, ex.getStatus());
+        assertEquals("Não foi possível encontrar esse cliente", ex.getMessage());
         verify(repository, times(1)).findById(1L);
     }
 

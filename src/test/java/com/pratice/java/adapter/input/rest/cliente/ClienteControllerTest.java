@@ -118,7 +118,7 @@ class ClienteControllerTest {
     @Test
     void quando_buscarCliente_deve_retornarUmClienteNotFound() throws Exception {
 
-        when(clienteUseCase.executar(0L)).thenThrow(new NotFoundException(404, "Não foi possível encontrar esse cliente"));
+        when(clienteUseCase.executar(0L)).thenThrow(new NotFoundException("Não foi possível encontrar esse cliente"));
 
         var result = mockMvc.perform(get("/v1/cliente/" + 0)
                         .contentType(MediaType.APPLICATION_JSON).characterEncoding("UTF-8"))

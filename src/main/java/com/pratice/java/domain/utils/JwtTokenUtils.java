@@ -16,7 +16,7 @@ import java.time.ZonedDateTime;
 public class JwtTokenUtils implements TokenGeneratorPort {
 
     private static final String SECRET_KEY = "4Z^XrroxR@dWxqf$mTTKwW$!@#qGr4P";
-    private static final String ISSUER = "pizzurg-api";
+    private static final String ISSUER = "pratice-java-api";
     private static final ZoneId ZONE_ID = ZoneId.of("America/Sao_Paulo");
 
     @Override

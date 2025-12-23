@@ -28,3 +28,6 @@ resilience4j:
         waitDurationInOpenState: 10s
         permittedNumberOfCallsInHalfOpenState: 2
 
+url:
+  viacep: https://viacep.com.br/ws
+

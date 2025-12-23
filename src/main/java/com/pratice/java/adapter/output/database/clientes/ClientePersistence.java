@@ -6,7 +6,6 @@ import com.pratice.java.adapter.output.database.clientes.repository.ClienteRepos
 import com.pratice.java.domain.utils.Formatter;
 import com.pratice.java.port.output.ClientePort;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -27,7 +26,7 @@ public class ClientePersistence implements ClientePort {
 
     @Override
     public ClienteEntity buscarCliente(Long idCliente) {
-        return repository.findById(idCliente).orElseThrow(() -> new NotFoundException(HttpStatus.NOT_FOUND.value(), MSG_NOT_FOUND));
+        return repository.findById(idCliente).orElseThrow(() -> new NotFoundException(MSG_NOT_FOUND));
     }
 
     @Override
@@ -37,7 +36,7 @@ public class ClientePersistence implements ClientePort {
 
     @Override
     public void excluirCliente(Long idCliente) {
-        ClienteEntity entity = repository.findById(idCliente).orElseThrow(() -> new NotFoundException(HttpStatus.NOT_FOUND.value(), MSG_NOT_FOUND));
+        ClienteEntity entity = repository.findById(idCliente).orElseThrow(() -> new NotFoundException(MSG_NOT_FOUND));
         repository.delete(entity);
     }
 
@@ -45,6 +44,6 @@ public class ClientePersistence implements ClientePort {
     public ClienteEntity buscarCliente(String cpf) {
         String parteBase = Formatter.extrairBase(cpf);
         BigDecimal controle = Formatter.extrairFinal(cpf);
-        return repository.findByCpfCnpjAndControle(parteBase, controle).orElseThrow(() -> new NotFoundException(HttpStatus.NOT_FOUND.value(), MSG_NOT_FOUND));
+        return repository.findByCpfCnpjAndControle(parteBase, controle).orElseThrow(() -> new NotFoundException(MSG_NOT_FOUND));
     }
 }
