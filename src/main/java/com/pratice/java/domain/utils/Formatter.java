@@ -1,11 +1,13 @@
 package com.pratice.java.domain.utils;
 
-import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 
-@Component
-public class Formatter {
+public final class Formatter {
+
+    private Formatter() {
+        throw new UnsupportedOperationException("Classe utilitária não deve ser instanciada");
+    }
+
     public static String formatarCpfCnpj(String numero) {
         if (numero == null) return null;
 

@@ -1,9 +1,9 @@
 package com.pratice.java.adapter.input.rest.cliente;
 
 import com.pratice.java.adapter.input.rest.cliente.dto.ClienteEntityWrapper;
-import com.pratice.java.adapter.input.rest.cliente.request.AtualizarDadosRequest;
-import com.pratice.java.adapter.input.rest.cliente.request.ClienteRequest;
-import com.pratice.java.adapter.input.rest.cliente.response.ClienteResponse;
+import com.pratice.java.adapter.input.rest.cliente.dto.request.AtualizarDadosRequest;
+import com.pratice.java.adapter.input.rest.cliente.dto.request.ClienteRequest;
+import com.pratice.java.adapter.input.rest.cliente.dto.response.ClienteResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

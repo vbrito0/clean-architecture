@@ -1,7 +1,7 @@
 package com.pratice.java.adapter.input.rest.cliente.mapper;
 
 import com.pratice.java.adapter.input.rest.cliente.dto.ClienteEntityWrapper;
-import com.pratice.java.adapter.input.rest.cliente.request.ClienteRequest;
+import com.pratice.java.adapter.input.rest.cliente.dto.request.ClienteRequest;
 import com.pratice.java.adapter.input.rest.endereco.mapper.EnderecoMapper;
 import com.pratice.java.adapter.output.database.clientes.entity.ClienteEntity;
 import com.pratice.java.domain.model.ClienteModel;

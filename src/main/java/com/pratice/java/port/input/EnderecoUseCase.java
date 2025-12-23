@@ -1,7 +1,7 @@
 package com.pratice.java.port.input;
 
 import com.pratice.java.adapter.input.rest.endereco.dto.EnderecoEntityWrapper;
-import com.pratice.java.adapter.input.rest.endereco.request.EnderecoRequest;
+import com.pratice.java.adapter.input.rest.endereco.dto.request.EnderecoRequest;
 import jakarta.validation.Valid;
 
 import java.util.List;

@@ -1,39 +1,27 @@
 package com.pratice.java.adapter.exception;
 
+import lombok.Getter;
+import org.springframework.http.HttpStatus;
+
+import java.io.Serial;
+
+@Getter
 public class BusinessException extends RuntimeException {
+
+    @Serial
     private static final long serialVersionUID = 1L;
-    private final String errorCode;
-    private final String errorMsg;
+    private final HttpStatus status;
+    private final String message;
 
-    public BusinessException(Integer errorCode, String errorMsg, Throwable cause) {
-        super(errorMsg, cause);
-        this.errorCode = Integer.toString(errorCode);
-        this.errorMsg = errorMsg;
+    public BusinessException(HttpStatus status, String message, Throwable cause) {
+        super(message, cause);
+        this.status = status;
+        this.message = message;
     }
 
-    public BusinessException(String errorCode, String errorMsg, Throwable cause) {
-        super(errorMsg, cause);
-        this.errorCode = errorCode;
-        this.errorMsg = errorMsg;
-    }
-
-    public BusinessException(Integer errorCode, String errorMsg) {
-        super(errorMsg);
-        this.errorCode = Integer.toString(errorCode);
-        this.errorMsg = errorMsg;
-    }
-
-    public BusinessException(String errorCode, String errorMsg) {
-        super(errorMsg);
-        this.errorCode = errorCode;
-        this.errorMsg = errorMsg;
-    }
-
-    public String getErrCode() {
-        return errorCode;
-    }
-
-    public String getErrMsg() {
-        return errorMsg;
+    public BusinessException(HttpStatus status, String message) {
+        super(message);
+        this.status = status;
+        this.message = message;
     }
 }

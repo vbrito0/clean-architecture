@@ -1,4 +1,4 @@
-package com.pratice.java.adapter.input.rest.endereco.response;
+package com.pratice.java.adapter.input.rest.endereco.dto.response;
 
 public record ViaCepResponse(String cep,
                              String logradouro,

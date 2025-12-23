@@ -1,0 +1,11 @@
+### Requisição POST com corpo JSON [Registrando usuário]
+POST http://localhost:8080/pratice-java/v1/auth/registrar
+Content-Type: application/json
+
+{
+  "email": "teste@gmail.com",
+  "senha": "teste#123"
+}
+
+### Requisição POST com Request Param [Login usuário]
+POST http://localhost:8080/pratice-java/v1/auth/login?username=teste@gmail.com&senha=teste#123

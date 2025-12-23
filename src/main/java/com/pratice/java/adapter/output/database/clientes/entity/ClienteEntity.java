@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -44,7 +45,7 @@ public class ClienteEntity {
     private BigDecimal rendaMensal;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<EnderecoEntity> enderecos;
+    private List<EnderecoEntity> enderecos = new ArrayList<>();
 
     @PostLoad
     private void formatarControleCpfCnpj() {
